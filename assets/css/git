@@ -1,0 +1,6 @@
+How to use git:
+	- git add .
+	- git commit -m "the name of the commit"
+	-git push
+in case if you want to pull commits from the server:
+	- git pull
