@@ -30,8 +30,10 @@
 }
 
 body, html {
-	height: 100%;
-	font-family: Montserrat-Regular, sans-serif;
+ font-size: 20px;
+    color: #212529;
+    font-family: 'Lora', 'Times New Roman', serif;
+}
 }
 
 /*---------------------------------------------*/
@@ -57,7 +59,8 @@ a:hover {
 
 /*---------------------------------------------*/
 h1,h2,h3,h4,h5,h6 {
-	margin: 0px;
+	font-weight: 800;
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 p {
@@ -233,9 +236,9 @@ iframe {
 /*==================================================================
 [ Title form ]*/
 .contact100-form-title {
-  font-family: Montserrat-Bold;
-  font-size: 30px;
-  color: #fff;
+  font-family: "Karla", sans-serif;
+  font-size: 25px;
+  color: #f3f3f7;
   line-height: 1.2;
   text-transform: uppercase;
 
@@ -392,15 +395,14 @@ textarea.input100 {
 /*------------------------------------------------------------------
 [ Button ]*/
 .container-contact100-form-btn {
-  width: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding-top: 17px;
+padding: 13px 20px 12px;
+    background-color: #0085A1;
+    border-radius: 4px;
+    font-size: 17px;
+    font-weight: bold;
+    line-height: 20px;
+    color: #fff;
+    margin-bottom: 24px;
 }
 
 .contact100-form-btn {

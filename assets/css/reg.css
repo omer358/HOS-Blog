@@ -245,17 +245,15 @@ h6 {
    #BUTTON
    ========================================================================== */
 .btn {
-  display: inline-block;
-  line-height: 50px;
-  padding: 0 50px;
-  -webkit-transition: all 0.4s ease;
-  -o-transition: all 0.4s ease;
-  -moz-transition: all 0.4s ease;
-  transition: all 0.4s ease;
-  cursor: pointer;
-  font-size: 18px;
-  color: #fff;
-  font-family: "Poppins", "Arial", "Helvetica Neue", sans-serif;
+padding: 13px 20px 12px;
+    background-color: #0085A1;
+    border-radius: 4px;
+    font-size: 17px;
+    font-weight: bold;
+    line-height: 20px;
+    color: #fff;
+    margin-bottom: 24px;
+    margin-left: 70%;
 }
 
 .btn--radius {
