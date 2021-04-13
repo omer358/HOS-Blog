@@ -50,7 +50,7 @@
                                 <input name="login" id="login" class="btn btn-block login-btn mb-4" type="button" value="Login">
                             </form>
                             <a href="#!" class="forgot-password-link">Forgot password?</a>
-                            <p class="login-card-footer-text">Don't have an account? <a href="reg.html" class="text-reset">Register here</a></p>
+                            <p class="login-card-footer-text">Don't have an account? <a href="reg.php" class="text-reset">Register here</a></p>
                             <nav class="login-card-footer-nav">
                                 <a href="#!">Terms of use.</a>
                                 <a href="#!">Privacy policy</a>
