@@ -1,3 +1,7 @@
+<?php
+session_start();
+include('connection/connect.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,12 +46,21 @@
                     <li class="nav-item">
                         <a class="nav-link" href="about.php">About Us</a>
                     </li>
-                   
-                    <li class="nav-item">
+                    <?php
+                    if(isset($_SESSION['user_email'])){
+                        echo'
+                        <li class="nav-item">
+                        <a class="nav-link" href="insert_post.php">New Post</a>
+                        </li>
+                        ';
+                    }else{
+                        echo'
+                        <li class="nav-item">
                         <a class="nav-link" href="login.php"> Login</a>
-                    </li>
-                     
-                
+                        </li>
+                        ';
+                    }
+                    ?>
                 </ul>
             </div>
         </div>
@@ -71,59 +84,50 @@
     <!-- Main Content -->
     <div class="container">
         <div class="row">
-            <div class="card" style="width: 20rem;">
-                <img src="https://miro.medium.com/max/2560/1*Ec7MJdsUiuVUMkeTw_6y_g.jpeg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">How To Become A Mobile Developer</h5>
-                    <p class="post-meta">Posted by
-                        <a href="#">Omer Maki</a> on September 18, 202</p>
-                    <a href="post.php" class="btn btn-primary">Read More</a>
-                </div>
-            </div>
-            <div class="card" style="width: 20rem;">
-                <img src="https://miro.medium.com/max/2560/1*Ec7MJdsUiuVUMkeTw_6y_g.jpeg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">How To Become A Mobile Developer</h5>
-                    <p class="post-meta">Posted by
-                        <a href="#">Omer Maki</a> on September 18, 202</p>
-                    <a href="#" class="btn btn-primary">Read More</a>
-                </div>
-            </div>
-            <div class="card" style="width: 20rem;">
-                <img src="https://miro.medium.com/max/2560/1*Ec7MJdsUiuVUMkeTw_6y_g.jpeg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">How To Become A Mobile Developer</h5>
-                    <p class="post-meta">Posted by
-                        <a href="#">Omer Maki</a> on September 18, 202</p>
-                    <a href="#" class="btn btn-primary">Read More</a>
-                </div>
-            </div>
-            <div class="card" style="width: 20rem;">
-                <img src="https://miro.medium.com/max/2560/1*Ec7MJdsUiuVUMkeTw_6y_g.jpeg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">How To Become A Mobile Developer</h5>
-                    <p class="post-meta">Posted by
-                        <a href="#">Omer Maki</a> on September 18, 202</p>
-                    <a href="#" class="btn btn-primary">Read More</a>
-                </div>
-            </div>
-            <div class="card" style="width: 20rem;">
-                <img src="https://miro.medium.com/max/2560/1*Ec7MJdsUiuVUMkeTw_6y_g.jpeg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">How To Become A Mobile Developer</h5>
-                    <p class="post-meta">Posted by
-                        <a href="#">Omer Maki</a> on September 18, 202</p>
-                    <a href="#" class="btn btn-primary">Read More</a>
-                </div>
-            </div>
+            <?php
+                $sql = "SELECT * FROM posts";
+                $result = mysqli_query($conn, $sql);
+                
+                if (mysqli_num_rows($result) > 0) {
+                  // output data of each row
+                  while($row = mysqli_fetch_assoc($result)) {
+                    $post_id = $row['id'];
+                    $post_title = substr($row['title'], 0, 35);
+                    $post_image = $row['image'];
+                    $pub_date = $row['pub_date'];
+                    $post_author = $row['author_id'];
+
+                    //Getting Author Name By Using author_id Value From posts table
+                    $author = "SELECT * FROM author WHERE id = $post_author";
+                    $author_res = mysqli_query($conn, $author);
+                    while($author_row = mysqli_fetch_assoc($author_res)) {
+                        $f_name = $author_row['first_name'];
+                        $l_name = $author_row['last_name'];
+                        $full_name = $f_name.' '.$l_name;
+                    }
+
+                    echo '
+                    <div class="card" style="width: 20rem;">
+                    <img style="max-height:180px;object-fit:cover;" src="'.$post_image.'" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">'.$post_title.'...</h5>
+                        <p class="post-meta">Posted by
+                            <span class="font-weight-bold">'.$full_name.'</span> on '.date("M d, Y", strtotime($pub_date)).'</p>
+                        <a href="post.php?post_id='.$post_id.'" class="btn btn-primary">Read More</a>
+                    </div>
+                    </div>
+                    ';
+                  }
+                }
+            ?>
         </div>
         <!-- Pager -->
-        <div class="clearfix" style="border: radius 4px;">
+        <!-- <div class="clearfix" style="border: radius 4px;">
             <button class="btn btn-primary float-right" href="#">
                 More &rarr;
             </button>
 
-        </div>
+        </div> -->
         <hr>
 
         <!-- Footer -->

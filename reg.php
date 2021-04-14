@@ -16,7 +16,9 @@
     <link href="vendor/mdi-font/css/material-design-iconic-font.reg.css" rel="stylesheet" media="all">
     <link href="vendor/font-awesome-4.7/css/font-awesome.reg.css" rel="stylesheet" media="all">
     <!-- Font special for pages-->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
 
     <!-- Vendor CSS-->
     <link href="vendor/select2/select2.reg.css" rel="stylesheet" media="all">
@@ -32,23 +34,31 @@
             <div class="card card-4">
                 <div class="card-body">
                     <h2 class="title">Registration Form</h2>
-                    <form method="POST">
+                    <form method="POST" action="reg_action.php">
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label"></label>
-                                    <input class="input--style-4" type="text" name="first_name" placeholder="first name">
+                                    <!-- <label class="label">First Name</label> -->
+                                    <input class="input--style-4" type="text" name="first_name"
+                                        placeholder="First name">
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label"></label>
-                                    <input class="input--style-4" type="text" name="last_name" placeholder="last name">
+                                    <!-- <label class="label">Last name</label> -->
+                                    <input class="input--style-4" type="text" name="last_name" placeholder="Last name">
 
                                 </div>
                             </div>
                         </div>
-                        <div class="row row-space">
+                        <div class="input-group">
+                            <!-- <label class="label">Password</label> -->
+                            <input class="input--style-4" type="password" name="password" placeholder="paswword">
+                        </div>
+                        <div class="input-group">
+                            <input class="input--style-4" type="email" name="email" placeholder="Email">
+                        </div>
+                        <!-- <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label"></label>
@@ -57,8 +67,8 @@
                                         <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-2">
+                            </div> -->
+                        <!-- <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Gender</label>
                                     <div class="p-t-10">
@@ -72,9 +82,9 @@
                                         </label>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="row row-space">
+                            </div> -->
+                        <!-- </div> -->
+                        <!-- <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label"></label>
@@ -85,23 +95,20 @@
                                 <div class="input-group">
                                     <label class="label"></label>
                                     <input class="input--style-4" type="tel"  id="phone" name="phone" placeholder="Phone Number">
-                             
-
                                 </div>
-                            </div>
+                            </div> 
                         </div>
-                     
-                                <div class="select-dropdown"></div>
-                            </div>
-                            <div class="p-t-15">
-                            <button class="btn btn-primary float-right" type="submit">Submit</button>
+                        <div class="select-dropdown"></div> -->
+                        <div class="input-group">
+                            <button class="btn btn-primary float-right" name="reg_btn" type="submit">Submit</button>
                         </div>
-                        </div>
-                        
-                    </form>
                 </div>
             </div>
+
+            </form>
         </div>
+    </div>
+    </div>
     </div>
 
     <!-- Jquery JS-->

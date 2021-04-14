@@ -1,3 +1,13 @@
+<?php
+// session_start();
+// if(!isset($_SESSION['user_email'])){
+//   header('Location: index.php');
+//   exit();
+// }
+
+// session_start();
+// echo $_SESSION['user_email']; 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,7 +48,7 @@
                                 <img src="assets/images/login.svg" alt="logo" class="logo">
                             </div>
                             <p class="login-card-description">Sign into your account</p>
-                            <form action="#!">
+                            <form action="login_action.php" method="post">
                                 <div class="form-group">
                                     <label for="email" class="sr-only">Email</label>
                                     <input type="email" name="email" id="email" class="form-control" placeholder="Email address">
@@ -47,7 +57,7 @@
                                     <label for="password" class="sr-only">Password</label>
                                     <input type="password" name="password" id="password" class="form-control" placeholder="***********">
                                 </div>
-                                <input name="login" id="login" class="btn btn-block login-btn mb-4" type="button" value="Login">
+                                <button type="submit" name="login_btn" class="btn btn-block login-btn mb-4">Login</button>
                             </form>
                             <a href="#!" class="forgot-password-link">Forgot password?</a>
                             <p class="login-card-footer-text">Don't have an account? <a href="reg.php" class="text-reset">Register here</a></p>
